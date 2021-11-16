@@ -1,3 +1,6 @@
+### 1.3 [11/16 11:18]
+- Deleted unused variable
+
 ### 1.2 [11/16 11:15]
 - Removed now(), setTime(), adjustTime()
 

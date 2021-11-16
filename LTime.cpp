@@ -37,7 +37,7 @@
 
 static tmElements_t tm;          // a cache of time elements
 static time_t cacheTime;   // the time the cache was updated
-static uint32_t syncInterval = 300;  // time sync will be attempted after this many seconds
+//static uint32_t syncInterval = 300;  // time sync will be attempted after this many seconds
 
 void refreshCache(time_t t) {
   if (t != cacheTime) {
@@ -142,9 +142,9 @@ time_t makeTime(tmElements_t &tm){
 /*=====================================================*/	
 /* Low level system time functions  */
 
-static uint32_t sysTime = 0;
+/*static uint32_t sysTime = 0;
 static uint32_t prevMillis = 0;
-static uint32_t nextSyncTime = 0;
+static uint32_t nextSyncTime = 0;*/
 //static timeStatus_t Status = timeNotSet;
 
 getExternalTime getTimePtr;  // pointer to external sync function
