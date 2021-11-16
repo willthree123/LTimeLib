@@ -154,7 +154,7 @@ getExternalTime getTimePtr;  // pointer to external sync function
 time_t sysUnsyncedTime = 0; // the time sysTime unadjusted by sync  
 #endif
 
-
+/*
 time_t now() {
 	// calculate number of seconds passed since last call to now()
   while (millis() - prevMillis >= 1000) {
@@ -209,14 +209,14 @@ void setTime(int hr,int min,int sec,int dy, int mnth, int yr){
 
 void adjustTime(long adjustment) {
   sysTime += adjustment;
-}
+}*/
 /*
 // indicates if time has been set and recently synchronized
 timeStatus_t timeStatus() {
   now(); // required to actually update the status
   return Status;
 }*/
-
+/*
 void setSyncProvider( getExternalTime getTimeFunction){
   getTimePtr = getTimeFunction;  
   nextSyncTime = sysTime;
@@ -226,4 +226,4 @@ void setSyncProvider( getExternalTime getTimeFunction){
 void setSyncInterval(time_t interval){ // set the number of seconds between re-sync
   syncInterval = (uint32_t)interval;
   nextSyncTime = sysTime + syncInterval;
-}
+}*/

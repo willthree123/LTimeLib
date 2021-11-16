@@ -85,11 +85,11 @@ typedef time_t(*getExternalTime)();
 #define weeksToTime_t   ((W)) ( (W) * SECS_PER_WEEK)   
 
 /*============================================================================*/
-
+/*
 time_t now();              // return the current time as seconds since Jan 1 1970 
 void    setTime(time_t t);
 void    setTime(int hr,int min,int sec,int day, int month, int yr);
-void    adjustTime(long adjustment);
+void    adjustTime(long adjustment);*/
 
 /* date strings */ 
 #define dt_MAX_STRING_LEN 9 // length of longest date string (excluding terminating null)
