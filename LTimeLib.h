@@ -1,3 +1,4 @@
+
 #ifndef _LTime_h
 #ifdef __cplusplus
 #define _LTime_h
@@ -16,7 +17,7 @@ typedef struct  {
   uint8_t Day;
   uint8_t Month; 
   uint8_t Year;   // offset from 1970; 
-} 	tmElements_t, TimeElements, *tmElementsPtr_t;
+} 	tmElements_t;
 
 //typedef time_t(*getExternalTime)();
 
