@@ -31,8 +31,6 @@ typedef unsigned long time_t;
 // but at least this hack lets us define C++ functions as intended.  Hopefully
 // nothing too terrible will result from overriding the C library header?!
 extern "C++" {
-typedef enum {timeNotSet, timeNeedsSync, timeSet
-}  timeStatus_t ;
 
 typedef struct  { 
   uint8_t Second; 
@@ -45,10 +43,10 @@ typedef struct  {
 } 	tmElements_t, TimeElements, *tmElementsPtr_t;
 
 //convenience macros to convert to and from tm years 
-#define  tmYearToCalendar(Y) ((Y) + 1970)  // full four digit year 
+/*#define  tmYearToCalendar(Y) ((Y) + 1970)  // full four digit year 
 #define  CalendarYrToTm(Y)   ((Y) - 1970)
 #define  tmYearToY2k(Y)      ((Y) - 30)    // offset is from 2000
-#define  y2kYearToTm(Y)      ((Y) + 30)   
+#define  y2kYearToTm(Y)      ((Y) + 30)   */
 
 typedef time_t(*getExternalTime)();
 //typedef void  (*setExternalTime)(const time_t); // not used in this version

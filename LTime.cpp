@@ -145,7 +145,7 @@ time_t makeTime(tmElements_t &tm){
 static uint32_t sysTime = 0;
 static uint32_t prevMillis = 0;
 static uint32_t nextSyncTime = 0;
-static timeStatus_t Status = timeNotSet;
+//static timeStatus_t Status = timeNotSet;
 
 getExternalTime getTimePtr;  // pointer to external sync function
 //setExternalTime setTimePtr; // not used in this version
@@ -172,7 +172,7 @@ time_t now() {
         setTime(t);
       } else {
         nextSyncTime = sysTime + syncInterval;
-        Status = (Status == timeNotSet) ?  timeNotSet : timeNeedsSync;
+        //Status = (Status == timeNotSet) ?  timeNotSet : timeNeedsSync;
       }
     }
   }  
@@ -187,7 +187,7 @@ void setTime(time_t t) {
 
   sysTime = (uint32_t)t;  
   nextSyncTime = (uint32_t)t + syncInterval;
-  Status = timeSet;
+  //Status = timeSet;
   prevMillis = millis();  // restart counting from now (thanks to Korman for this fix)
 } 
 
@@ -210,12 +210,12 @@ void setTime(int hr,int min,int sec,int dy, int mnth, int yr){
 void adjustTime(long adjustment) {
   sysTime += adjustment;
 }
-
+/*
 // indicates if time has been set and recently synchronized
 timeStatus_t timeStatus() {
   now(); // required to actually update the status
   return Status;
-}
+}*/
 
 void setSyncProvider( getExternalTime getTimeFunction){
   getTimePtr = getTimeFunction;  
