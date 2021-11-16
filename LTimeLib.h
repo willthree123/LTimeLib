@@ -1,10 +1,3 @@
-/*
-#include <inttypes.h>
-#ifndef __AVR__
-#include <sys/types.h> // for __time_t_defined, but avr libc lacks sys/types.h
-#endif
-*/
-
 #ifndef _LTime_h
 #ifdef __cplusplus
 #define _LTime_h
