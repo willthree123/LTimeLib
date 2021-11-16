@@ -1,3 +1,6 @@
+### 1.5 [11/16 11:21]
+- Deleted breakTime()
+
 ### 1.4 [11/16 11:21]
 - Deleted marco
 
