@@ -1,5 +1,3 @@
-
-
 #ifndef _LTime_h
 #ifdef __cplusplus
 #define _LTime_h
@@ -42,24 +40,10 @@ typedef time_t(*getExternalTime)();
 #define SECS_PER_MIN  (60UL)
 #define SECS_PER_HOUR (3600UL)
 #define SECS_PER_DAY  (SECS_PER_HOUR * 24UL)
-#define DAYS_PER_WEEK (7UL)
-#define SECS_PER_WEEK (SECS_PER_DAY * DAYS_PER_WEEK)
-#define SECS_PER_YEAR (SECS_PER_WEEK * 52UL)
-#define SECS_YR_2000  (946684800UL) // the time at the start of y2k
 
-
-/* date strings */ 
-#define dt_MAX_STRING_LEN 9 // length of longest date string (excluding terminating null)
-char* monthStr(uint8_t month);
-char* dayStr(uint8_t day);
-char* monthShortStr(uint8_t month);
-char* dayShortStr(uint8_t day);
-	
 /* low level functions to convert to and from system time                     */
-//void breakTime(time_t time, tmElements_t &tm);  // break time_t into elements
 time_t makeTime(tmElements_t &tm);  // convert time elements into time_t
 
 } // extern "C++"
 #endif // __cplusplus
 #endif /* _LTime_h */
-

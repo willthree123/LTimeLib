@@ -1,3 +1,6 @@
+### 1.6 [11/16 11:35]
+- Deleted useful Constants
+
 ### 1.5 [11/16 11:21]
 - Deleted breakTime()
 
