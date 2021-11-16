@@ -1,31 +1,4 @@
-/*
-  time.c - low level time and date functions
-  Copyright (c) Michael Margolis 2009-2014
 
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-  
-  1.0  6  Jan 2010 - initial release
-  1.1  12 Feb 2010 - fixed leap year calculation error
-  1.2  1  Nov 2010 - fixed setTime bug (thanks to Korman for this)
-  1.3  24 Mar 2012 - many edits by Paul Stoffregen: fixed timeStatus() to update
-                     status, updated examples for Arduino 1.0, fixed ARM
-                     compatibility issues, added TimeArduinoDue and TimeTeensy3
-                     examples, add error checking and messages to RTC examples,
-                     add examples to DS1307RTC library.
-  1.4  5  Sep 2014 - compatibility with Arduino 1.5.7
-*/
 
 #if ARDUINO >= 100
 #include <Arduino.h> 
@@ -139,91 +112,9 @@ time_t makeTime(tmElements_t &tm){
   seconds+= tm.Second;
   return (time_t)seconds; 
 }
-/*=====================================================*/	
-/* Low level system time functions  */
-
-/*static uint32_t sysTime = 0;
-static uint32_t prevMillis = 0;
-static uint32_t nextSyncTime = 0;*/
-//static timeStatus_t Status = timeNotSet;
 
 getExternalTime getTimePtr;  // pointer to external sync function
-//setExternalTime setTimePtr; // not used in this version
 
 #ifdef TIME_DRIFT_INFO   // define this to get drift data
 time_t sysUnsyncedTime = 0; // the time sysTime unadjusted by sync  
 #endif
-
-/*
-time_t now() {
-	// calculate number of seconds passed since last call to now()
-  while (millis() - prevMillis >= 1000) {
-		// millis() and prevMillis are both unsigned ints thus the subtraction will always be the absolute value of the difference
-    sysTime++;
-    prevMillis += 1000;	
-#ifdef TIME_DRIFT_INFO
-    sysUnsyncedTime++; // this can be compared to the synced time to measure long term drift     
-#endif
-  }
-  if (nextSyncTime <= sysTime) {
-    if (getTimePtr != 0) {
-      time_t t = getTimePtr();
-      if (t != 0) {
-        setTime(t);
-      } else {
-        nextSyncTime = sysTime + syncInterval;
-        //Status = (Status == timeNotSet) ?  timeNotSet : timeNeedsSync;
-      }
-    }
-  }  
-  return (time_t)sysTime;
-}
-
-void setTime(time_t t) { 
-#ifdef TIME_DRIFT_INFO
- if(sysUnsyncedTime == 0) 
-   sysUnsyncedTime = t;   // store the time of the first call to set a valid Time   
-#endif
-
-  sysTime = (uint32_t)t;  
-  nextSyncTime = (uint32_t)t + syncInterval;
-  //Status = timeSet;
-  prevMillis = millis();  // restart counting from now (thanks to Korman for this fix)
-} 
-
-void setTime(int hr,int min,int sec,int dy, int mnth, int yr){
- // year can be given as full four digit year or two digts (2010 or 10 for 2010);  
- //it is converted to years since 1970
-  if( yr > 99)
-      yr = yr - 1970;
-  else
-      yr += 30;  
-  tm.Year = yr;
-  tm.Month = mnth;
-  tm.Day = dy;
-  tm.Hour = hr;
-  tm.Minute = min;
-  tm.Second = sec;
-  setTime(makeTime(tm));
-}
-
-void adjustTime(long adjustment) {
-  sysTime += adjustment;
-}*/
-/*
-// indicates if time has been set and recently synchronized
-timeStatus_t timeStatus() {
-  now(); // required to actually update the status
-  return Status;
-}*/
-/*
-void setSyncProvider( getExternalTime getTimeFunction){
-  getTimePtr = getTimeFunction;  
-  nextSyncTime = sysTime;
-  now(); // this will sync the clock
-}
-
-void setSyncInterval(time_t interval){ // set the number of seconds between re-sync
-  syncInterval = (uint32_t)interval;
-  nextSyncTime = sysTime + syncInterval;
-}*/

@@ -1,3 +1,6 @@
+### 1.4 [11/16 11:21]
+- Deleted marco
+
 ### 1.3 [11/16 11:18]
 - Deleted unused variable
 
