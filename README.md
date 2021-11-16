@@ -1,3 +1,6 @@
+### 1.7 [11/16 11:40]
+- Pretty much optimzed
+
 ### 1.6 [11/16 11:35]
 - Deleted useful Constants
 

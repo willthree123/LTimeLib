@@ -1,17 +1,16 @@
 #ifndef _LTime_h
 #ifdef __cplusplus
 #define _LTime_h
-
+/*
 #include <inttypes.h>
 #ifndef __AVR__
 #include <sys/types.h> // for __time_t_defined, but avr libc lacks sys/types.h
 #endif
-
+*/
 
 #if !defined(__time_t_defined) // avoid conflict with newlib or other posix libc
 typedef unsigned long time_t;
 #endif
-
 
 // This ugly hack allows us to define C++ overloaded functions, when included
 // from within an extern "C", as newlib's sys/stat.h does.  Actually it is
@@ -33,10 +32,9 @@ typedef struct  {
   uint8_t Year;   // offset from 1970; 
 } 	tmElements_t, TimeElements, *tmElementsPtr_t;
 
-typedef time_t(*getExternalTime)();
+//typedef time_t(*getExternalTime)();
 
 /*==============================================================================*/
-/* Useful Constants */
 #define SECS_PER_MIN  (60UL)
 #define SECS_PER_HOUR (3600UL)
 #define SECS_PER_DAY  (SECS_PER_HOUR * 24UL)
