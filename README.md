@@ -1,3 +1,6 @@
+### 1.8 [11/16 12:52]
+- Optimzed, Stable
+
 ### 1.7 [11/16 11:40]
 - Pretty much optimzed
 

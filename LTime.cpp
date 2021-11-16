@@ -4,7 +4,7 @@
 #include <WProgram.h> 
 #endif
 
-#include "LTime.h"
+#include "LTimeLib.h"
 
 // leap year calulator expects year argument as years offset from 1970
 #define LEAP_YEAR(Y)     ( ((1970+Y)>0) && !((1970+Y)%4) && ( ((1970+Y)%100) || !((1970+Y)%400) ) )
