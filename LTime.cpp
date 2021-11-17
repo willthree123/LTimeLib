@@ -1,10 +1,34 @@
-#if ARDUINO >= 100
-#include <Arduino.h> 
-#else
-#include <WProgram.h> 
+
+#ifndef _LTime_h
+#define _LTime_h
+
+#if !defined(__time_t_defined) // avoid conflict with newlib or other posix libc
+typedef unsigned long time_t;
 #endif
 
-#include "LTimeLib.h"
+extern "C++" {
+
+typedef struct  { 
+  uint8_t Second; 
+  uint8_t Minute; 
+  uint8_t Hour; 
+  uint8_t Wday;   // day of week, sunday is day 1
+  uint8_t Day;
+  uint8_t Month; 
+  uint8_t Year;   // offset from 1970; 
+} 	tmElements_t;
+
+//typedef time_t(*getExternalTime)();
+
+/*==============================================================================*/
+#define SECS_PER_MIN  (60UL)
+#define SECS_PER_HOUR (3600UL)
+#define SECS_PER_DAY  (SECS_PER_HOUR * 24UL)
+
+time_t makeTime(tmElements_t &tm);  // convert time elements into time_t
+
+} // extern "C++"
+#endif /* _LTime_h */
 
 // leap year calulator expects year argument as years offset from 1970
 #define LEAP_YEAR(Y)     ( ((1970+Y)>0) && !((1970+Y)%4) && ( ((1970+Y)%100) || !((1970+Y)%400) ) )

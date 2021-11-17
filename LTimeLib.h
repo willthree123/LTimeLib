@@ -1,6 +1,5 @@
 
 #ifndef _LTime_h
-#ifdef __cplusplus
 #define _LTime_h
 
 #if !defined(__time_t_defined) // avoid conflict with newlib or other posix libc
@@ -29,5 +28,4 @@ typedef struct  {
 time_t makeTime(tmElements_t &tm);  // convert time elements into time_t
 
 } // extern "C++"
-#endif // __cplusplus
 #endif /* _LTime_h */
