@@ -1,8 +1,8 @@
 
 
-
+#if !defined(__time_t_defined) // avoid conflict with newlib or other posix libc
 typedef unsigned long time_t;
-
+#endif
 #define SECS_PER_MIN  (60UL)
 #define SECS_PER_HOUR (3600UL)
 #define SECS_PER_DAY  (SECS_PER_HOUR * 24UL)
