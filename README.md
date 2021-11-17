@@ -1,3 +1,6 @@
+### 2.5.0 [11/17 15:24] 
+- Combined in 2.5 ino file
+
 ### 2.0.0 [11/17 10:10] 
 - Combined in ino file
 

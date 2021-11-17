@@ -1,9 +1,8 @@
 
-#ifndef _LTime_h
-#define _LTime_h
-#if !defined(__time_t_defined) // avoid conflict with newlib or other posix libc
+
+
 typedef unsigned long time_t;
-#endif
+
 #define SECS_PER_MIN  (60UL)
 #define SECS_PER_HOUR (3600UL)
 #define SECS_PER_DAY  (SECS_PER_HOUR * 24UL)
@@ -23,7 +22,7 @@ typedef struct  {
 }   tmElements_t;
 time_t makeTime(tmElements_t &tm);  // convert time elements into time_t
 } // extern "C++"
-#endif /* _LTime_h */
+
 
 time_t makeTime(tmElements_t &tm){    
   int i;
